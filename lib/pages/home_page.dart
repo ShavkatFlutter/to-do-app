@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
     db.updateDatabase();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        duration: const Duration(seconds: 2),
         content: const Text("Swipe to left to delete"),
         action: SnackBarAction(
             label: "close",
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         splashColor: Colors.grey[500],
         onPressed: createTask,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.blueGrey,
         child: const Icon(Icons.add),
       ),
     );
