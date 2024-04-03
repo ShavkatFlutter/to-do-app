@@ -45,6 +45,16 @@ class _HomePageState extends State<HomePage> {
     });
     Navigator.pop(context);
     db.updateDatabase();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text("Swipe to left to delete"),
+        action: SnackBarAction(
+            label: "close",
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+      ),
+    );
   }
 
   void createTask() {
@@ -80,16 +90,16 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: ListView.builder(
-              itemCount: db.toDoList.length,
-              itemBuilder: (context, index) {
-                return ToDoTitle(
-                  title: db.toDoList[index][0],
-                  taskDone: db.toDoList[index][1],
-                  onChanged: (value) => checkBoxChanged(value, index),
-                  deleteFunction: (context) => deleteTask(index),
-                );
-              },
-            ),
+        itemCount: db.toDoList.length,
+        itemBuilder: (context, index) {
+          return ToDoTitle(
+            title: db.toDoList[index][0],
+            taskDone: db.toDoList[index][1],
+            onChanged: (value) => checkBoxChanged(value, index),
+            deleteFunction: (context) => deleteTask(index),
+          );
+        },
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         splashColor: Colors.grey[500],
