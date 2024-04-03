@@ -50,9 +50,8 @@ class _HomePageState extends State<HomePage> {
         content: const Text("Swipe to left to delete"),
         action: SnackBarAction(
             label: "close",
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+            onPressed: (){},
+        ),
       ),
     );
   }
